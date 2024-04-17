@@ -1,0 +1,15 @@
+on:
+  push
+  workflow_dispatch
+
+jobs:
+
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: dispatch
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PAT }}
+          repository: neilmcguigan/distribute-public-keys
+          event-type: foo
